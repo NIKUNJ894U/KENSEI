@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Barlow+Condensed:wght@400;700&family=Rajdhani:wght@600;700&display=swap');
+@import "tailwindcss";
+
+@variant dark (.dark &);
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Base styling enhancements for custom scrollbars and layouts */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(161, 161, 170, 0.4);
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(223, 225, 4, 0.8);
+}
+
+/* Selection Highlight */
+::selection {
+  background-color: #DFE104;
+  color: #000000;
+}
+
+/* Brutalist Noise Texture Overlay */
+.noise-texture {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  opacity: 0.025;
+  z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Kinetic Scrolling Marquee classes */
+@keyframes marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: running; /* Keep moving always! */
+}
+
+.animate-marquee-slow {
+  display: flex;
+  width: max-content;
+  animation: marquee 45s linear infinite;
+}
+
+/* Smooth kinetic transition adjustments */
+.brutalist-transition {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* AI FAB pulsing orb styles */
+.ai-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  width: 64px;
+  height: 64px;
+  background: #DFE104;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid #DFE104;
+  font-size: 28px;
+  transition: transform 0.2s;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(223, 225, 4, 0.4);
+}
+.ai-fab:hover {
+  transform: scale(1.1);
+}
+.ai-fab::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border: 2px solid rgba(223, 225, 4, 0.4);
+  border-radius: 50%;
+  animation: pulse-fab 2s ease-out infinite;
+  pointer-events: none;
+}
+.ai-fab::after {
+  content: '';
+  position: absolute;
+  inset: -16px;
+  border: 2px solid rgba(223, 225, 4, 0.2);
+  border-radius: 50%;
+  animation: pulse-fab 2s ease-out infinite 0.4s;
+  pointer-events: none;
+}
+.ai-status-dot {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 10px;
+  height: 10px;
+  background: #00ff88;
+  border-radius: 50%;
+  border: 2px solid #000;
+  animation: blink 1.5s ease-in-out infinite;
+  z-index: 10;
+}
+@keyframes pulse-fab {
+  0% { opacity: 0.8; transform: scale(0.9); }
+  100% { opacity: 0; transform: scale(1.4); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.wordmark {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+}
+
+.wordmark-kan {
+  color: #FFFFFF;
+}
+
+.wordmark-sei {
+  color: #C8E500;
+}
+
+
+
+
+
